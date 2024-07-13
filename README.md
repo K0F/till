@@ -15,5 +15,5 @@ This Go program allows you to sleep until a specified time. It takes a time in t
    ```
 
    ```sh
-	till 13:30; ./somesctipt.sh
+	till 13:30; ./someScript.sh
    ```
