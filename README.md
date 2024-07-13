@@ -12,6 +12,7 @@ This Go program allows you to sleep until a specified time. It takes a time in t
    git clone https://github.com/K0F/till.git
    cd till
    go mod tidy
+   go build
    ```
 
    ```sh
