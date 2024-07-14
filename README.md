@@ -1,5 +1,7 @@
 # Sleep Until Time Program
 
+![Build Status](https://github.com/K0F/till/actions/workflows/go.yml/badge.svg)
+
 This Go program allows you to sleep until a specified time. It takes a time in the format `HH:MM` (24-hour format) as a command-line argument and blocks execution until that exact time is reached.
 
 ## Usage
