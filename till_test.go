@@ -4,6 +4,7 @@ package main
 import (
 	"bytes"
 	"fmt"
+	"os"
 	"os/exec"
 	"strings"
 	"testing"
@@ -21,8 +22,15 @@ func runCommand(args ...string) (string, int, error) {
 }
 
 func TestTill(t *testing.T) {
+
+	loc, err := time.LoadLocation("Europe/Prague")
+	if err != nil {
+		fmt.Println("Error loading location:", err)
+		os.Exit(1)
+	}
+
 	// Get the current time plus one minute
-	currentTime := time.Now().Add(1 * time.Minute)
+	currentTime := time.Now().In(loc).Add(1 * time.Minute)
 	timeString := currentTime.Format("15:04")
 
 	tests := []struct {
