@@ -9,7 +9,7 @@ import (
 func main() {
 	if len(os.Args) < 2 {
 		fmt.Println("Usage: ./till <time HH:MM>")
-		return
+		os.Exit(1)
 	}
 
 	timeString := os.Args[1]
@@ -21,7 +21,7 @@ func main() {
 	loc, err := time.LoadLocation("Europe/Prague")
 	if err != nil {
 		fmt.Println("Error loading location:", err)
-		return
+		os.Exit(1)
 	}
 
 	// Get the current time
@@ -31,7 +31,7 @@ func main() {
 	targetTime, err := time.Parse("15:04", timeString)
 	if err != nil {
 		fmt.Printf("Error parsing time: %v\n", err)
-		return
+		os.Exit(1)
 	}
 
 	localTime := currentTime.In(loc)
@@ -57,4 +57,6 @@ func main() {
 
 	// Perform any actions after waking up
 	fmt.Println("Unblocking...")
+
+	os.Exit(0)
 }
