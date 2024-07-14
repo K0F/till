@@ -8,14 +8,25 @@ import (
 
 func main() {
 	if len(os.Args) < 2 {
-		fmt.Println("Usage: go run main.go <time>")
+		fmt.Println("Usage: ./till <time HH:MM>")
 		return
 	}
 
 	timeString := os.Args[1]
 
+	// in some cases this gives wrong timezone
+    //loc, err := time.LoadLocation("Local")
+    //to set it manually you can define timezone here
+    
+	loc, err := time.LoadLocation("Europe/Prague")
+    if err != nil {
+        fmt.Println("Error loading location:", err)
+        return
+    }
+
+
 	// Get the current time
-	currentTime := time.Now()
+	currentTime := time.Now().In(loc)
 
 	// Parse the input time string
 	targetTime, err := time.Parse("15:04", timeString)
@@ -23,9 +34,11 @@ func main() {
 		fmt.Printf("Error parsing time: %v\n", err)
 		return
 	}
+	
+    localTime := currentTime.In(loc)
 
 	// Calculate the duration until the target time
-	targetDateTime := time.Date(currentTime.Year(), currentTime.Month(), currentTime.Day(), targetTime.Hour(), targetTime.Minute(), 0, 0, currentTime.Location())
+	targetDateTime := time.Date(localTime.Year(), localTime.Month(), localTime.Day(), targetTime.Hour(), targetTime.Minute(), 0, 0, localTime.Location())
 	duration := targetDateTime.Sub(currentTime)
 
 	// If the target time is earlier than the current time, add 24 hours to sleep until the next day
