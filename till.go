@@ -15,15 +15,14 @@ func main() {
 	timeString := os.Args[1]
 
 	// in some cases this gives wrong timezone
-    //loc, err := time.LoadLocation("Local")
-    //to set it manually you can define timezone here
-    
-	loc, err := time.LoadLocation("Europe/Prague")
-    if err != nil {
-        fmt.Println("Error loading location:", err)
-        return
-    }
+	//loc, err := time.LoadLocation("Local")
+	//to set it manually you can define timezone here
 
+	loc, err := time.LoadLocation("Europe/Prague")
+	if err != nil {
+		fmt.Println("Error loading location:", err)
+		return
+	}
 
 	// Get the current time
 	currentTime := time.Now().In(loc)
@@ -34,8 +33,8 @@ func main() {
 		fmt.Printf("Error parsing time: %v\n", err)
 		return
 	}
-	
-    localTime := currentTime.In(loc)
+
+	localTime := currentTime.In(loc)
 
 	// Calculate the duration until the target time
 	targetDateTime := time.Date(localTime.Year(), localTime.Month(), localTime.Day(), targetTime.Hour(), targetTime.Minute(), 0, 0, localTime.Location())
@@ -49,7 +48,7 @@ func main() {
 	// Create a timer that will fire after 'duration' time has passed
 	timer := time.NewTimer(duration)
 
-	fmt.Printf("Sleeping until %s, that is in %v ahead.\n", targetDateTime.Format("3:04 PM"), duration)
+	fmt.Printf("Sleeping until %s, that is in %v.\n", targetDateTime.Format("3:04 PM"), duration)
 
 	// Block until the timer expires
 	<-timer.C
