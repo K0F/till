@@ -43,8 +43,3 @@ Insert command after till, for safety reasons you can use `&&` instead. In most 
 On some systems, namely `Termux` and some virtual machines there can be an issue with setting correct timezone. Any suggested fix didn't resolve this among all systems tested, it has definitely something to do with TZ and system locale, output incoherrent.
 
 Edit the source code to pass your preferred TZ string. 
-
-
-## European continental 24h format
-
-That is what I use, you can make a fork if you prefer 12 hours and AM/PM instead.
