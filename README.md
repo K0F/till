@@ -69,9 +69,6 @@ If the target time is reached and the command is executed:
 This project is licensed under the GPL 3.0 Licence
 
 
-You can now copy and paste this verbatim into your `README.md`. This should keep the formatting intact for Markdown!
-
-
 ## Timezone misdetection bug
 
 On some systems, namely `Termux` and some virtual machines there can be an issue with setting correct timezone. Any suggested fix didn't resolve this among all systems tested, it has definitely something to do with TZ and system locale, output incoherrent.
