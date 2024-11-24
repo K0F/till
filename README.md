@@ -12,9 +12,9 @@ If you don't have Go installed, download it from the [official Go website](https
 1. Clone or download this repository.
 2. In the terminal, navigate to the folder containing the `till.go` file and run the following command to compile the program:
 
-   ```bash
+```bash
    go build till.go
-
+```
 This will generate an executable file named till. Copy it to your path to install.
 
 ## Usage
@@ -33,34 +33,33 @@ To set only the target time and start the countdown:
 ```
 
 This command will wait until 14:30 and then exit.
+
 ## Example 2: Set a command to be executed
 
 To run a command after the countdown reaches the target time:
 
-```
-./till -t 14:30 -c "echo 'Hello, world!'"
-```
+	./till -t 14:30 -c "echo 'Hello, world!'"
 
-	This command will wait until 14:30, then execute echo 'Hello, world!' and display the output.
+This command will wait until 14:30, then execute echo 'Hello, world!' and display the output.
 Countdown Output
 
-	During the countdown, the remaining time and the command to be executed will be displayed on the screen:
+During the countdown, the remaining time and the command to be executed will be displayed on the screen:
 
-```
-Time remaining: 00:15:34.123
-Command to execute: echo 'Hello, world!'
-```
 
-	Once the target time is reached, the program will execute the command and show its output.
+	Time remaining: 00:15:34.123
+	Command to execute: echo 'Hello, world!'
+
+
+Once the target time is reached, the program will execute the command and show its output.
 Example output after reaching the target time
 
-	If the target time is reached and the command is executed:
-```
-Target time reached 14:30!
-Executing command: echo 'Hello, world!'
-Hello, world!
-Unblocking...
-```
+If the target time is reached and the command is executed:
+
+	Target time reached 14:30!
+	Executing command: echo 'Hello, world!'
+	Hello, world!
+	Unblocking...
+
 ## Dependencies
 
     Go 1.18+ (for building)
